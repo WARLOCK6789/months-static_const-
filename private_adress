@@ -1,0 +1,61 @@
+#include <iostream>
+#include <string>
+#include <windows.h>
+
+using namespace std;
+
+
+
+struct private_adress
+{
+	string city;
+	string street;
+	double number_home;
+	double number_appartament;
+	double index;
+
+};
+
+
+void printAddress(const private_adress* address)
+{
+	cout << "Город: " << address->city << endl;
+	cout << "Улица: " << address->street << endl;
+	cout << "Номер дома: " << address->number_home << endl;
+	cout << "Номер квартиры: " << address->number_appartament << endl;
+	cout << "Индекс: " << address->index << endl;
+}
+
+
+
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	private_adress addresses[2];
+
+	private_adress User_data;
+
+	cout << "Город:" << endl;
+	cin >> User_data.city;
+
+	cout << "Улица:" << endl;
+	cin >> User_data.street;
+
+	cout << "Номер дома:" << endl;
+	cin >> User_data.number_home;
+
+	cout << "Номер квартиры:" << endl;
+	cin >> User_data.number_appartament;
+
+	cout << "Индекс:" << endl;
+	cin >> User_data.index;
+
+
+
+	printAddress(&User_data);
+
+	return EXIT_SUCCESS;
+}
+
