@@ -1,40 +1,85 @@
 #include <iostream>
-#include <string>
 #include <windows.h>
 
 using namespace std;
 
+enum Months {
+    JANUARY = 1,
+    FEBRUARY,
+    MARCH,
+    APRIL,
+    MAY,
+    JUNE,
+    JULY,
+    AUGUST,
+    SEPTEMBER,
+    OCTOBER,
+    NOVEMBER,
+    DECEMBER
+};
 
-int main()
+int main() 
 {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
 
-	static const char* MounthsNames[] =
-	{
-		"Январь","Февраль", "Март", "Апрель", "Май", "Июнь",
-		"Июль", "Август", "Сентябрь", "Октябрь", "Декабрь"
-	};
+    int userInput;
 
-	int months;
+    while (true) 
+{
+        cout << "Введите номер месяца: ";
+        cin >> userInput;
 
-	while (true)
-	{
-		std::cout << "Введите номер месяца:";
-		std::cin >> months;
+        if (userInput == 0) {
+            cout << "До свидания" << endl;
+            break;
+        }
 
-		if (months >= 1 && months <= 12)
-		{
-			std::cout << MounthsNames[months - 1] << std::endl;
-		}
-		else
-		{
-			std::cout << "До свидания!" << std::endl;
-			break;
-		}
-	}
+        Months month = static_cast<Months>(userInput);
 
-	 
-	return EXIT_SUCCESS;
+        switch (month) 
+{
+            case JANUARY:
+                cout << "Январь" << endl;
+                break;
+            case FEBRUARY:
+                cout << "Февраль" << endl;
+                break;
+            case MARCH:
+                cout << "Март" << endl;
+                break;
+            case APRIL:
+                cout << "Апрель" << endl;
+                break;
+            case MAY:
+                cout << "Май" << endl;
+                break;
+            case JUNE:
+                cout << "Июнь" << endl;
+                break;
+            case JULY:
+                cout << "Июль" << endl;
+                break;
+            case AUGUST:
+                cout << "Август" << endl;
+                break;
+            case SEPTEMBER:
+                cout << "Сентябрь" << endl;
+                break;
+            case OCTOBER:
+                cout << "Октябрь" << endl;
+                break;
+            case NOVEMBER:
+                cout << "Ноябрь" << endl;
+                break;
+            case DECEMBER:
+                cout << "Декабрь" << endl;
+                break;
+            default:
+                cout << "Неправильный номер!" << endl;
+                break;
+        }
+    }
+
+    return EXIT_SUCCESS;
 }
-
